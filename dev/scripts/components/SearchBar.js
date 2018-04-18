@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 const SearchBar = (props) => {
     return (
         <div>
-            <label htmlFor="searchTerm">Search Here </label>
-            <input type="text" id="searchTerm" name="searchTerm" onChange={props.handleChange} />
+            <label htmlFor="searchTerm" className="visuallyhidden" >Search Here </label>
+            <input type="text" placeholder="Search Here..." id="searchTerm" name="searchTerm" onChange={props.handleChange} />
         </div>
     )
 };

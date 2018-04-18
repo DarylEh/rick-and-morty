@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar';
 import DisplayCharacter from './components/DisplayCharacter';
 import Buttons from './components/Buttons';
 import SearchBar from './components/SearchBar';
+import Header from './components/Header';
 
 class App extends React.Component {
     constructor(){
@@ -13,6 +14,8 @@ class App extends React.Component {
 			this.state = {
 				characters:[],
 				selectedCharacter: [],
+				// location:null,
+				// origin:"",
 				next:"",
 				prev:"",
 				searchTerm:""
@@ -23,12 +26,16 @@ class App extends React.Component {
 		this.updateUrl = this.updateUrl.bind(this);
 		// Debounce
 		this.updateUrl = _.debounce(this.updateUrl, 500);
+		console.log(this.State)
 	};
 	componentDidMount() {
+		
 		axios.get('https://rickandmortyapi.com/api/character').then(res =>{
+			console.log(res);
 			this.setState({
 				characters: res.data.results,
 				selectedCharacter: res.data.results[0],
+				location: res.data.results.location,
 				next: res.data.info.next,
 				prev: res.data.info.prev,
 			});
@@ -79,20 +86,38 @@ class App extends React.Component {
 		});
 	}
 	render() {
+		// const hey = this.state.selectedCharacter && this.state.selectedCharacter.location ? this.state.selectedCharacter.location.name : null;
+
+		const hey = ((this.state.selectedCharacter || {}).location || {}).name;
+		console.log(hey)
 		return (
 			<div className="main">
-				<div className="main-list">
-					<SearchBar 
-						handleChange={this.handleChange}/>
-					<Sidebar 
-						characters = {this.state.characters}
-						onCharacterSelect = {selectedCharacter => this.setState({selectedCharacter})}/>
-					<Buttons 
-						handleClickNext={this.handleClickNext}
-						handleClickPrev={this.handleClickPrev}/>
-				</div>
-				<div className="main-display">
-					<DisplayCharacter character={this.state.selectedCharacter}/>
+				{/* <div className="stars"> */}
+			{/* <div className="twinkling"> */}
+			
+				<Header />
+				<div className="main-display wrapper">
+					<div className="main-display-list">
+						<SearchBar 
+							handleChange={this.handleChange}/>
+						<Sidebar 
+							characters = {this.state.characters}
+							onCharacterSelect = {selectedCharacter => this.setState({selectedCharacter})}/>
+						<Buttons 
+							handleClickNext={this.handleClickNext}
+							handleClickPrev={this.handleClickPrev}/>
+					</div>
+					<div className="main-display-card">
+						<DisplayCharacter 
+							character={this.state.selectedCharacter}
+							// location={this.state.selectedCharacter}
+							// location={((this.state.selectedCharacter || {}).location || {}).name}
+							/>
+					</div>
+				
+				{/* </div> */}
+			{/* </div> */}
+				
 				</div>
 			</div>
 		)
