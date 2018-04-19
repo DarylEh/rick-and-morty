@@ -54,33 +54,6 @@ h1 {
 // }
 
 
-.stars,
-.twinkling
- {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.stars {
-  background: #000 url(http://sylvaingarnot.fr/media/stars.png) repeat top center;
-  z-index: 0;
-}
-
-.twinkling {
-  background: transparent url(http://sylvaingarnot.fr/media/twinkling.png) repeat top center;
-  z-index: 1;
-//   -moz-animation: move-twink-back 200s linear infinite;
-//   -ms-animation: move-twink-back 200s linear infinite;
-//   -o-animation: move-twink-back 200s linear infinite;
-//   -webkit-animation: move-twink-back 200s linear infinite;
-  animation: move-twink-back 200s linear infinite;
-}
 
 // .clouds {
 //   background: transparent url(http://sylvaingarnot.fr/media/clouds.png) repeat top center;
@@ -112,16 +85,17 @@ header {
 }
 .main-display {
     display: flex;
+    max-height: 100vh;
     // justify-content: center;
     // align-items: center;
     // max-width: 1000px;
     
 }
 .wrapper {
-    max-width: 1080px;
+    max-width: 100%;
     margin: 0 auto;
     border: orchid 1px solid;
-    padding:10px;
+    // padding:10px;
 }
 input[type=text]{
     width: 100%;
@@ -130,10 +104,14 @@ input[type=text]{
     padding-left: 6rem;
     margin:.1rem;
 }
+.sidebar-main{
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
 ul.sidebar {
-    height: 50vh;
-    overflow: auto;
     padding: 0;
+
     cursor: pointer;
     li {
         text-align: left;
@@ -141,7 +119,7 @@ ul.sidebar {
         border: #90C35F .5rem solid;
         background-color: #45B5CB;
         padding:1rem;
-        padding-left: 6rem;
+        padding-left: 2rem;
         margin:.1rem;
         &:hover {
             transition: all 0.4s ease-in-out;
@@ -153,34 +131,100 @@ ul.sidebar {
 // 242636
 //35386D
 .main-display-list {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
+    width: 25%;
+    // display: flex;
+    // flex-direction: column;
+    // flex: 3;
     font-size: 1.6rem;
+    border: 1rem #90C35F solid;
+        overflow: hidden;
     // justify-content: flex-start;
 
 }
 .main-display-card {
-    width: 60%;
+    width: 75%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    // justify-content: center;
     font-size: 1.6rem;
-    background-color: #4F773C;
+    background-color: #3790a2;
 
 }
 .main-display-list-buttons {
-    margin-top: 1rem;
+    margin-top: .1rem;
     display: flex;
     justify-content: space-between;
     .btn {
+
         padding: 1rem 2.5rem;
+        // background-color: #90C35F;
+        background-color: #669966;
+        border: .3rem solid #A0E8A0;
+        color: white;
+        margin: .1rem;
+        flex-grow: 1;
+        &:hover {
+            transition: all 0.4s ease-in-out;
+            background-color: #A0E8A0;
+        }
+        // border-top: 3px solid #A0E8A0;
+        // border-left: 3px solid #A0E8A0;
+        // border-right: 3px solid #005500;
+        // border-right: 3px solid #005500;
     }
 }
 .main-display-card-ind {
-    border: orange 1px solid;
+    // border: orange 1px solid;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
+
     img {
+        // position: relative;
         border-radius: 50%;
+        border: 1rem #90C35F solid;
+        margin-right: 1rem;
+        // width: 100%;
     }
 
+}
+.main-display-card-ind-img {
+    position: relative;
+    text-align: center;
+}
+.status-alive,
+.status-dead,
+.status-unknown{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility:hidden; 
+}
+.main-display-card-ind-info,
+.main-display-card-ind-name {
+    border: 1rem #90C35F solid;
+    border-radius: 2.5rem;
+    padding: .5rem;
+    height: fit-content;
+    flex-grow: 1;
+    align-self: center;
+    margin: .5rem;
+    
+
+    
+    p {
+        font-size: 2rem;
+    }
+}
+
+.main-display-card-ind-top {
+    display: flex;
+
+}
+span.bold {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
 }

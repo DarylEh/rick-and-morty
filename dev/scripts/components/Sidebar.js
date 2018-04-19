@@ -10,7 +10,7 @@ const Sidebar = (props) => {
             character={character}/>
     });
         return (
-            <div>
+            <div className = "sidebar-main" >
                 <ul className="sidebar">
                     {SidebarItems}
                 </ul>
