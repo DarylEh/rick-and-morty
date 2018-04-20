@@ -17,6 +17,7 @@
 @media (max-width: 780px) {
     h1 {
         padding-top: 1rem;
+        font-size: 4rem;
     }
     .main-display {
     flex-direction: column;
@@ -31,10 +32,5 @@
     }
     .main-display-card-ind .main-display-card-ind-img img {
         margin-right: 0;
-    }
-}
-@media (max-width: 480px) {
-    h1 {
-        font-size: 4rem;
     }
 }
