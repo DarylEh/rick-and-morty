@@ -27,9 +27,7 @@ class App extends React.Component {
 		this.updateUrl = _.debounce(this.updateUrl, 500);
 	};
 	componentDidMount() {
-		console.log(this.State)
 		axios.get('https://rickandmortyapi.com/api/character').then(res =>{
-			console.log(res);
 			this.setState({
 				characters: res.data.results,
 				selectedCharacter: res.data.results[0],
@@ -89,8 +87,6 @@ class App extends React.Component {
 	}
 	render() {
 		const hey = ((this.state.selectedCharacter || {}).location || {}).name;
-		console.log(hey)
-		// const 
 		return (
 			<div className="main">
 				<div className="main-display wrapper">
