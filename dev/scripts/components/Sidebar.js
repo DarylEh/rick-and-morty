@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import SidebarItem from './SidebarItem';
-
+//Sidebar component that takes in props and maps thru the characters array from state
 const Sidebar = (props) => {
     const SidebarItems = props.characters.map((character)=> {
         return <SidebarItem  

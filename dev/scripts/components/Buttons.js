@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+//Button component that receives handleClickPrev and handleClickNext 
+//Runs said functions located in App
 const Buttons = (props) => {
     return (
         <div className="main-display-list-buttons">

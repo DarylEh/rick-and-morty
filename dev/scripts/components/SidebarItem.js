@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+// SidebarItem component which takes each character and places them in an <li>
+// onClick event runs onCharacterSelect and updates state
 const SidebarItem = (props) => {
     const character = props.character;
     const onCharacterSelect = props.onCharacterSelect;

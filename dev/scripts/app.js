@@ -7,28 +7,23 @@ import DisplayCharacter from './components/DisplayCharacter';
 import Buttons from './components/Buttons';
 import SearchBar from './components/SearchBar';
 import Header from './components/Header';
-import StatusButton from './components/StatusButton';
 
 class App extends React.Component {
-	
-    constructor(){
+	constructor(){
 		super();
 			this.state = {
 				characters:[],
 				selectedCharacter: [],
-				// location:null,
-				// origin:"",
 				next:"",
 				prev:"",
 				searchTerm:""
 			}
-	
+		//Binding
 		this.handleClickNext = this.handleClickNext.bind(this);
 		this.handleClickPrev = this.handleClickPrev.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.updateUrl = this.updateUrl.bind(this);
-		// this.handleClickStatus = this.handleClickStatus.bind(this);
-		// Debounce
+		// Debounce 500ms
 		this.updateUrl = _.debounce(this.updateUrl, 500);
 	};
 	componentDidMount() {
@@ -45,6 +40,7 @@ class App extends React.Component {
 		});
 		
 	};
+	//Click event for next button
 	handleClickNext (e) {
 		e.preventDefault();
 		let url = this.state.next;
@@ -56,6 +52,7 @@ class App extends React.Component {
 			});
 		});
 	};
+	//Click event for prev button
 	handleClickPrev (e) {
 		e.preventDefault();
 		let url = this.state.prev;
@@ -67,19 +64,7 @@ class App extends React.Component {
 			});
 		});
 	};
-	
-	// handleClickStatus (e){
-	// 	e.preventDefault();
-	// 	// console.log(this.state.selectedCharacter);
-	// 	// if (this.state.selectedCharacter.status === 'Alive'){
-	// 	// 	console.log("alive")
-	// 	// } else if (this.state.selectedCharacter.status === 'Dead') {
-	// 	// 	console.log('dead')
-	// 	// }else {
-	// 	// 	console.log('unknown')
-	// 	// }
-	// };
-	
+	//Handle change on Search Bar
 	handleChange(e) {
 		this.setState({
 			searchTerm: e.target.value
@@ -87,9 +72,7 @@ class App extends React.Component {
 		// It's debounced!
 		this.updateUrl();	
 	}
-
-
-	
+	//Debounce
 	updateUrl() {
 		this.setState({
 			currentUrl: this.state.searchTerm
@@ -104,21 +87,12 @@ class App extends React.Component {
 			});
 		});
 	}
-	
-	
-
 	render() {
-		// const hey = this.state.selectedCharacter && this.state.selectedCharacter.location ? this.state.selectedCharacter.location.name : null;
-		// let
 		const hey = ((this.state.selectedCharacter || {}).location || {}).name;
 		console.log(hey)
 		// const 
 		return (
-
 			<div className="main">
-				{/* <div className="stars"> */}
-			{/* <div className="twinkling"> */}
-			
 				<div className="main-display wrapper">
 					<div className="main-display-list">
 						<SearchBar 
@@ -134,16 +108,8 @@ class App extends React.Component {
 						<Header />
 						<DisplayCharacter 
 							character={this.state.selectedCharacter}
-							// location={this.state.selectedCharacter}
-							// location={((this.state.selectedCharacter || {}).location || {}).name}
 							/>
-						{/* <StatusButton status={this.state.selectedCharacter} handleClickStatus={this.handleClickStatus}/> */}
-						
 					</div>
-				
-				{/* </div> */}
-			{/* </div> */}
-				
 				</div>
 			</div>
 		)

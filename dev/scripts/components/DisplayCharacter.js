@@ -1,85 +1,43 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
+//Display character component
 const DisplayCharacter = (props) => {
-    
-    let type = "";
+    //passing selected character from state via props
     const character = props.character;
-    // let location = props.character.location.name;
+    //used to access nested obkects so we do not get undefined
     const location = ((props.character || {}).location || {}).name;
     const origin = ((props.character || {}).origin || {}).name;
+    // if type property is blank, throw in replacement text
+    let type = "";
     if (character.type === ""){
         type = 'Not that important';
     } else {
         type = character.type;
     }
-
-
-
-    // const location = {props.character.location && props.character.location.name};
-    console.log(location);
+    // if data is not gathered throw up a Loading message until data is retreived
     if (!character) {
-        return <div><p>LOADING</p></div>
-        }
-
-    // const handleClickStatus3 = (e) => {
-    //     e.preventDefault();
-    //     let alive = 'hidden';
-    //     console.log(character);
-    //     if (character.status === 'Alive') {
-    //         alive = 'visible'
-    //     } else if (character.status == 'Dead') {
-    //         dead = 'visible';
-    //     } else {
-    //         unknown = 'visible';
-    //     }
-    // }
-    const handleClickStatus = (e) => {
-        e.preventDefault();
-        console.log(character.status)
-        // let alive = 'hidden';
-        // console.log(character);
-        // if (character.status === 'Alive') {
-        //     alive = 'visible'
-        // } else if (character.status == 'Dead') {
-        //     dead = 'visible';
-        // } else {
-        //     unknown = 'visible';
-        // }
+        return <div><p>LOADING...</p></div>
     }
 
     return (
-
         <div className="main-display-card-ind">
-            <div className="main-display-card-ind-top">
-                <div className="main-display-card-ind-img">
-                    <img src={character.image} alt=""/>
-                    <div className="status-alive" >Alive</div>
-                    <div className="status-dead" >Dead</div>
-                    <div className="status-unknown" >Unknown</div>
-                
-                </div>
-                <div className="main-display-card-ind-side">
-                    <div className="main-display-card-ind-name">
-                        <p> <span className="bold"> {character.name} </span> </p>
-                    </div>
-                    <div className="main-display-card-ind-info">
-                        <p> <span className="bold"> Species:</span> {character.species}</p>
-                        <p> <span className="bold"> Type: </span> {type}</p>
-                        <p> <span className="bold"> Gender:</span> {character.gender}</p>
-                        <p> <span className="bold"> Current Location:</span> {location}</p>
-                        <p> <span className="bold"> Origin: </span> {origin}</p>
-                    
-                    </div>
-                    <div className="main-display-card-ind-bottom">
-                        <p>Status: </p>
-                        <button onClick={handleClickStatus} >hey now</button>
-                    </div>
-                </div>
-            
+            <div className="main-display-card-ind-img">
+                <img src={character.image} alt=""/>
             </div>
-            
-            
+            <div className="main-display-card-ind-side">
+                <div className="main-display-card-ind-name">
+                    <p className="name-result" > <span className="bold"> {character.name} </span> </p>
+                    <p className="status-result" > <span className="bold"> Status: </span> {character.status}</p>
+                </div>
+                <div className="main-display-card-ind-info">
+                    <p> <span className="bold"> Species:</span> {character.species}</p>
+                    <p> <span className="bold"> Type: </span> {type}</p>
+                    <p> <span className="bold"> Gender:</span> {character.gender}</p>
+                    <p> <span className="bold"> Current Location:</span> {location}</p>
+                    <p> <span className="bold"> Origin: </span> {origin}</p>
+                </div>
+            </div>        
         </div>
     )
 };

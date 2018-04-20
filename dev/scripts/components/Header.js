@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+// Simple Component for the header
 const Header = () => {
     return (
         <header>
-            <h1>Rick and Morty</h1>
+            <h1>Get Schwifty</h1>
         </header>
     )
 };
