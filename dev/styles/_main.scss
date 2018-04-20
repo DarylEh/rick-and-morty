@@ -94,24 +94,24 @@ ul.sidebar {
     margin: 0 auto;
     flex-wrap: wrap;
     justify-content: center;
-
-    img {
-        border-radius: 2.5rem;
-        border: 1rem #90C35F solid;
-        margin-right: 1rem;
-        width: 100%;
+    .main-display-card-ind-img {
+        margin-right: .5rem;
+        width: calc(40% - .5rem);
+        img {
+            border-radius: 2.5rem;
+            border: 1rem #90C35F solid;
+            margin-right: 1rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
-}
-.main-display-card-ind-img {
-    position: relative;
-    text-align: center;
-    margin-right: .5rem;
-    
 }
 .main-display-card-ind-side{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: calc(60% - .5rem);
 }
 .main-display-card-ind-info,
 .main-display-card-ind-name{

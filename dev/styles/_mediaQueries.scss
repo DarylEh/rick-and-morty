@@ -1,4 +1,18 @@
 @media (max-width: 940px) {
+    .main-display-card-ind-side{
+        width: auto;
+    }
+    .main-display-card-ind {
+        .main-display-card-ind-img {
+            width: auto;
+            margin-bottom: .5rem;
+            img {
+                border-radius: 2.5rem;
+                border: 1rem #90C35F solid;
+                width: 100%;
+            }
+        }
+    }
 }
 @media (max-width: 780px) {
     h1 {
@@ -15,7 +29,12 @@
     .main-display-card{
         width: 100%;
     }
+    .main-display-card-ind .main-display-card-ind-img img {
+        margin-right: 0;
+    }
 }
-
 @media (max-width: 480px) {
+    h1 {
+        font-size: 4rem;
+    }
 }
