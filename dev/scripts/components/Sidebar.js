@@ -11,10 +11,6 @@ const Sidebar = props => {
       />
     );
   });
-  return (
-    // <div className = "sidebar-main" >
-    <ul className="sidebar">{SidebarItems}</ul>
-    // </div>
-  );
+  return <ul className="sidebar">{SidebarItems}</ul>;
 };
 export default Sidebar;
